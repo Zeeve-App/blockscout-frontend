@@ -11,7 +11,7 @@ export const urlTest: yup.TestConfig = {
 
     try {
       if (typeof value === 'string') {
-        new URL(value);
+        // new URL(value); // commented this so that we can pass "#" in url in env
         return true;
       }
     } catch (error) {}

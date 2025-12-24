@@ -29,7 +29,7 @@ type Props = {
   hideCapybaraRunner?: boolean;
 };
 
-const BlockCountdown = ({ hideCapybaraRunner }: Props) => {
+const BlockCountdown = ({ hideCapybaraRunner = true }: Props) => {
   const multichainContext = useMultichainContext();
   const router = useRouter();
   const height = getQueryParamString(router.query.height);

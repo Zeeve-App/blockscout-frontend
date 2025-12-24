@@ -12,7 +12,7 @@ import useFetch from 'lib/hooks/useFetch';
 import useIssueUrl from 'lib/hooks/useIssueUrl';
 import { Link } from 'toolkit/chakra/link';
 import { Skeleton } from 'toolkit/chakra/skeleton';
-import { copy } from 'toolkit/utils/htmlEntities';
+// import { copy } from 'toolkit/utils/htmlEntities';
 import IconSvg from 'ui/shared/IconSvg';
 import { CONTENT_MAX_WIDTH } from 'ui/shared/layout/utils';
 import NetworkAddToWallet from 'ui/shared/NetworkAddToWallet';
@@ -38,42 +38,42 @@ const Footer = () => {
   const issueUrl = useIssueUrl(backendVersionData?.backend_version);
 
   const BLOCKSCOUT_LINKS = [
-    {
-      icon: 'edit' as const,
-      iconSize: '16px',
-      text: 'Submit an issue',
-      url: issueUrl,
-    },
+    // {
+    //   icon: 'edit' as const,
+    //   iconSize: '16px',
+    //   text: 'Submit an issue',
+    //   url: issueUrl,
+    // },
     {
       icon: 'social/git' as const,
       iconSize: '18px',
       text: 'Contribute',
-      url: 'https://github.com/blockscout/blockscout',
+      url: 'https://github.com/syscoin',
     },
     {
       icon: 'social/twitter' as const,
       iconSize: '18px',
       text: 'X (ex-Twitter)',
-      url: 'https://x.com/blockscout',
+      url: 'https://x.com/syscoin',
     },
     {
       icon: 'social/discord' as const,
       iconSize: '24px',
       text: 'Discord',
-      url: 'https://discord.gg/blockscout',
+      url:'https://discord.gg/syscoin',
     },
-    {
-      icon: 'brands/blockscout' as const,
-      iconSize: '18px',
-      text: 'All chains',
-      url: 'https://www.blockscout.com/chains-and-projects',
-    },
-    {
-      icon: 'donate' as const,
-      iconSize: '20px',
-      text: 'Donate',
-      url: 'https://eth.blockscout.com/address/0xfB4aF6A8592041E9BcE186E5aC4BDbd2B137aD11',
-    },
+    // {
+    //   icon: 'brands/blockscout' as const,
+    //   iconSize: '18px',
+    //   text: 'All chains',
+    //   url: 'https://www.blockscout.com/chains-and-projects',
+    // },
+    // {
+    //   icon: 'donate' as const,
+    //   iconSize: '20px',
+    //   text: 'Donate',
+    //   url: 'https://eth.blockscout.com/address/0xfB4aF6A8592041E9BcE186E5aC4BDbd2B137aD11',
+    // },
   ];
 
   const frontendLink = (() => {
@@ -123,23 +123,26 @@ const Footer = () => {
 
     return (
       <Box gridArea={ gridArea }>
-        <Flex columnGap={ 2 } textStyle="xs" alignItems="center">
+        {/* <Flex columnGap={ 2 } textStyle="xs" alignItems="center">
           <span>Made with</span>
-          <Link href="https://www.blockscout.com" external noIcon display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}>
+          <Link href="https://www.blockscout.com" target="_blank" display="inline-flex" color={ logoColor } _hover={{ color: logoColor }}> */}
             <IconSvg
               name="networks/logo-placeholder"
               width="80px"
               height={ 4 }
             />
-          </Link>
-        </Flex>
+          {/* </Link>
+        </Flex> */}
         <Text mt={ 3 } fontSize="xs">
-          Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+          The best of Bitcoin, Ethereum, and ZK-Rollups, brought together in a plug-and-play network for an ultra-fast, scalable, low gas platform that is secure. What will you build? Syscoin NEVM is a modular coordinated dual-chain EVM that gives ZK-Rollups a Bitcoin merge-mined L1 enhanced with finality that resists MEV attacks & selfish mining.
         </Text>
-        <Box mt={ 6 } alignItems="start" textStyle="xs">
+        <Text mt={ 3 } fontSize="xs">
+          Secured by BTC, Fueled by SYS.
+        </Text>
+        {/* <Box mt={ 6 } alignItems="start" textStyle="xs">
           { apiVersionUrl && (
             <Text>
-              Backend: <Link href={ apiVersionUrl } external noIcon>{ backendVersionData?.backend_version }</Link>
+              Backend: <Link href={ apiVersionUrl } target="_blank">{ backendVersionData?.backend_version }</Link>
             </Text>
           ) }
           { frontendLink && (
@@ -150,7 +153,7 @@ const Footer = () => {
           <Text>
             Copyright { copy } Blockscout Limited 2023-{ (new Date()).getFullYear() }
           </Text>
-        </Box>
+        </Box> */}
       </Box>
     );
   }, [ apiVersionUrl, backendVersionData?.backend_version, frontendLink ]);
@@ -208,7 +211,7 @@ const Footer = () => {
           >
             {
               ([
-                { title: 'Blockscout', links: BLOCKSCOUT_LINKS },
+                // { title: 'Blockscout', links: BLOCKSCOUT_LINKS },
                 ...(linksData || []),
               ])
                 .slice(0, colNum)
